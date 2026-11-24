@@ -1,12 +1,11 @@
 {
   "toBeLogin": {
-    "userEmail": "t0sv2028989@gmail.com",
-    "userPassword": "mah@123456M"
+    "userPassword": "mah@123456M",
+    "userEmail":"test1795539783139@gmail.com"
   },
   "toBeRegister": {
     "firstName": "tedstd0_est",
     "lastName": "tedstd0_est",
-    "userEmail": "t0sv2028989@gmail.com",
     "confirmPassword": "mah@123456M",
     "gender": "Male",
     "occupation": "Engineer",

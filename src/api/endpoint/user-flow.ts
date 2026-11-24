@@ -12,30 +12,44 @@ const ADD_PRODUCT_ENDPOINT = "/add-product";
 const PATH_PARAM2 = "/api/ecom/order";
 const ADD_ORDER_ENDPOINT = "/create-order";
 
+
+
+
+
 //Register TC
 async function registerTC(req: APIRequestContext, userData: any) {
+    const userEmail = `test${Date.now()}@gmail.com` ;
+
+  // Merge JSON data with dynamic userID
+  const userDataReg = {
+    ...userData,
+    userEmail: userEmail,
+  };
   let res = await req.post(PATH_PARAM + REGISTER_ENDPOINT, {
     headers: {
       "Content-Type": "application/json",
     },
-    data: userData,
+    data: userDataReg,
   });
   let resBody = await res.json();
+  console.log(res);
+  console.log("userEmail", userEmail);
   console.log(resBody);
   return { resBody, res };
 }
 
 //login TC
-async function loginTC(req: APIRequestContext, userData: any) {
-  let res = await req.post(PATH_PARAM + lOGIN_ENDPOINT, {
+async function loginTC(req: APIRequestContext,userDataLog: any) {
+// login
+  let resLogin = await req.post(PATH_PARAM + lOGIN_ENDPOINT, {
     headers: {
       "Content-Type": "application/json",
     },
-    data: userData,
+    data: userDataLog,
   });
-  let resBody = await res.json();
+  let resBody = await resLogin.json();
   console.log(resBody);
-  return { resBody, res };
+  return { resBody, resLogin };
 }
 
 //add product TC

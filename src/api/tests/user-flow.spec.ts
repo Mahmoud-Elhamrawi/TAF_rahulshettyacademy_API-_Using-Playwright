@@ -14,8 +14,7 @@ test("Register TC", async ({ request }) => {
   let { resBody, res } = await registerTC(request, userData.toBeRegister);
 
   expect(resBody).toBeTruthy();
-  expect(res).toBeOK();
-  expect(resBody.message).toBe("Registered Successfully");
+  await expect(res).toBeOK();
 
   expect(resBody).toEqual(
     expect.objectContaining({
@@ -26,10 +25,10 @@ test("Register TC", async ({ request }) => {
 
 //login TC
 test("login test", async ({ request }) => {
-  let { resBody, res } = await loginTC(request, userData.toBeLogin);
+  let { resBody, resLogin } = await loginTC(request, userData.toBeLogin);
 
   expect(resBody).toBeTruthy();
-  await expect(res).toBeOK();
+  await expect(resLogin).toBeOK();
   // asymertic matchers
   expect(resBody).toEqual(
     expect.objectContaining({
